@@ -5,6 +5,7 @@ const pub=pt.join(__dirname,'../public')
 const socketio=require('socket.io')
 const http=require('http')
 const crserver=http.createServer(app)
+const port=process.env.PORT || 5000
 const io=socketio(crserver)
 app.set('view engine','hbs')
 app.use(exp.static(pub))
@@ -22,8 +23,8 @@ app.get('',(req,res)=>{
 
 
 
-crserver.listen(3000,()=>{
-    console.log("Listening on port 3000")
+crserver.listen(port,()=>{
+    console.log(`Listening on port ${port}`)
 })
 
 
